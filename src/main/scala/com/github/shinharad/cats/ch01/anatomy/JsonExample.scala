@@ -1,6 +1,5 @@
 package com.github.shinharad.cats.ch01.anatomy
 
-
 object Example1 extends App {
   import JsonWriterInstances._
 

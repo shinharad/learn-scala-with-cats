@@ -24,7 +24,7 @@ object JsonWriterInstances {
         JsString(value)
     }
 //  implicit val stringWriter: JsonWriter[String] =
-//    (value: String) => JsString(value)
+//    JsString(_)
 
   implicit val personWriter: JsonWriter[Person] =
     new JsonWriter[Person] {
@@ -35,7 +35,7 @@ object JsonWriterInstances {
         ))
     }
 //  implicit val personWriter: JsonWriter[Person] =
-//    (value: Person) => JsObject(Map(
+//    value => JsObject(Map(
 //      "name" -> JsString(value.name),
 //      "email" -> JsString(value.email)
 //    ))
