@@ -2,9 +2,9 @@ package com.github.shinharad.cats.ch01.anatomy
 
 sealed trait Json
 final case class JsObject(get: Map[String, Json]) extends Json
-final case class JsString(get: String) extends Json
-final case class JsNumber(get: Double) extends Json
-case object JsNull extends Json
+final case class JsString(get: String)            extends Json
+final case class JsNumber(get: Double)            extends Json
+case object JsNull                                extends Json
 
 object Json {
   def toJson[A](value: A)(implicit w: JsonWriter[A]): Json =
@@ -29,10 +29,11 @@ object JsonWriterInstances {
   implicit val personWriter: JsonWriter[Person] =
     new JsonWriter[Person] {
       def write(value: Person): Json =
-        JsObject(Map(
-          "name" -> JsString(value.name),
-          "email" -> JsString(value.email)
-        ))
+        JsObject(
+          Map(
+            "name"  -> JsString(value.name),
+            "email" -> JsString(value.email)
+          ))
     }
 //  implicit val personWriter: JsonWriter[Person] =
 //    value => JsObject(Map(

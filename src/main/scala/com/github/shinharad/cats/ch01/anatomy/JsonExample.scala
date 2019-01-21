@@ -32,7 +32,7 @@ object Example3 extends App {
 object Example4 extends App {
   import JsonWriterInstances._
 
-  implicit val optionIntWriter: JsonWriter[Option[Int]] = ???
+  implicit val optionIntWriter: JsonWriter[Option[Int]]       = ???
   implicit val optionPersonWriter: JsonWriter[Option[Person]] = ???
 
   implicit def optionWriter[A](implicit writer: JsonWriter[A]): JsonWriter[Option[A]] =
@@ -40,7 +40,7 @@ object Example4 extends App {
       def write(option: Option[A]): Json =
         option match {
           case Some(aValue) => writer.write(aValue)
-          case None => JsNull
+          case None         => JsNull
         }
     }
 
@@ -51,5 +51,3 @@ object Example4 extends App {
 //  Json.toJson(Option(123l))
 
 }
-
-

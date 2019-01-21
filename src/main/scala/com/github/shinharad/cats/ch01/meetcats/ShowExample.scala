@@ -7,7 +7,7 @@ object ShowExample01 extends App {
   import cats.instances.int._
   import cats.instances.string._
 
-  val showInt = Show.apply[Int]
+  val showInt    = Show.apply[Int]
   val showString = Show.apply[String]
 
   val intAsString: String = showInt.show(123)
@@ -24,7 +24,7 @@ object ShowExample02 extends App {
   import cats._
   import cats.implicits._
 
-  val showInt = Show.apply[Int]
+  val showInt    = Show.apply[Int]
   val showString = Show.apply[String]
 
   val intAsString: String = showInt.show(123)
