@@ -1,12 +1,10 @@
 package com.github.shinharad.cats.ch03
 
 import cats.Functor
+import cats.instances.list._
+import cats.instances.option._
 
 object FunctorExample1 extends App {
-
-  import cats.Functor
-  import cats.instances.list._
-  import cats.instances.option._
 
   val list1 = List(1, 2, 3)
 
@@ -24,21 +22,5 @@ object FunctorExample1 extends App {
   println(liftedFunc)
 
   println(liftedFunc(Option(1)))
-
-}
-
-object FunctorExample2 extends App {
-
-  import cats.syntax.functor._
-  import cats.instances.option._
-  import cats.instances.list._
-  import scala.language.higherKinds
-
-  def doMath[F[_]](start: F[Int])(implicit functor: Functor[F]): F[Int] =
-    start.map(n => n + 1 * 2)
-
-  println(doMath(Option(20)))
-
-  println(doMath(List(1, 2, 3)))
 
 }

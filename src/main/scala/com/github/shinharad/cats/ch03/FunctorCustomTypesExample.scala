@@ -3,9 +3,8 @@ package com.github.shinharad.cats.ch03
 import cats.Functor
 
 import scala.concurrent.{ExecutionContext, Future}
-//import scala.concurrent.ExecutionContext.Implicits.global
 
-object CustomTypes extends App {
+object FunctorCustomTypesExample extends App {
 
   implicit val optionFunctor: Functor[Option] =
     new Functor[Option] {
