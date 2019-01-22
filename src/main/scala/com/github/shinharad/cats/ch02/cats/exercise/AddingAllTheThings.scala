@@ -23,4 +23,3 @@ object AddingAllTheThings extends App {
   println(Order(100.0, 200.0) |+| Order(300.0, 400.0))
 
 }
-
