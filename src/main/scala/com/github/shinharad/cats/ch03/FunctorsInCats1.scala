@@ -4,7 +4,7 @@ import cats.Functor
 import cats.instances.list._
 import cats.instances.option._
 
-object FunctorExample1 extends App {
+object FunctorsInCats1 extends App {
 
   val list1 = List(1, 2, 3)
 

@@ -4,7 +4,7 @@ import cats.Functor
 
 import scala.concurrent.{ExecutionContext, Future}
 
-object FunctorCustomTypesExample extends App {
+object FunctorCustomTypes extends App {
 
   implicit val optionFunctor: Functor[Option] =
     new Functor[Option] {

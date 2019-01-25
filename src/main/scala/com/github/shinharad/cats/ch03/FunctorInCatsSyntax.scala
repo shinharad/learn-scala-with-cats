@@ -3,7 +3,7 @@ package com.github.shinharad.cats.ch03
 import cats.instances.function._
 import cats.syntax.functor._
 
-object FunctorSyntax extends App {
+object FunctorInCatsSyntax extends App {
 
   val func1 = (a: Int) => a + 1
   val func2 = (a: Int) => a * 2

@@ -1,6 +1,6 @@
-package com.github.shinharad.cats.ch03.exercise
+package com.github.shinharad.cats.ch03
 
-import com.github.shinharad.cats.ch03.exercise.Tree.{Branch, Leaf}
+import com.github.shinharad.cats.ch03.Tree.{Branch, Leaf}
 
 sealed trait Tree[+A]
 

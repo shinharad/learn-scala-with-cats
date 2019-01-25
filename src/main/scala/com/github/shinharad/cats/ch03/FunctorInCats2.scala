@@ -6,13 +6,15 @@ import cats.instances.option._
 import cats.instances.list._
 import scala.language.higherKinds
 
-object FunctorExample2 extends App {
+object FunctorInCats2 extends App {
 
   def doMath[F[_]](start: F[Int])(implicit functor: Functor[F]): F[Int] =
     start.map(n => n + 1 * 2)
 
-  println(doMath(Option(20)))
+  val r1 = doMath(Option(20))
+  println(r1)
 
-  println(doMath(List(1, 2, 3)))
+  val r2 = doMath(List(1, 2, 3))
+  println(r2)
 
 }
