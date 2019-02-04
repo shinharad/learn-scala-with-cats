@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.functors_in_cats
 
 import cats.instances.function._
 import cats.syntax.functor._

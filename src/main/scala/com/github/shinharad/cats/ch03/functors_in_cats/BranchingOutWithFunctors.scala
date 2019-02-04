@@ -1,6 +1,6 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.functors_in_cats
 
-import com.github.shinharad.cats.ch03.Tree.{Branch, Leaf}
+import com.github.shinharad.cats.ch03.functors_in_cats.Tree.{Branch, Leaf}
 
 sealed trait Tree[+A]
 

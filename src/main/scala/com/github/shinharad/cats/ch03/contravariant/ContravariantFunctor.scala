@@ -1,4 +1,6 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.contravariant
+
+import com.github.shinharad.cats.ch03.Box
 
 trait Printable[A] { self =>
 
@@ -9,6 +11,7 @@ trait Printable[A] { self =>
       def format(value: B): String =
         self.format(func(value))
     }
+
 }
 
 object ContravariantFunctor extends App {

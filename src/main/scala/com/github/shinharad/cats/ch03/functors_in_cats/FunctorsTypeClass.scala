@@ -1,10 +1,10 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.functors_in_cats
 
 import cats.Functor
 import cats.instances.list._
 import cats.instances.option._
 
-object FunctorsInCats1 extends App {
+object FunctorsTypeClass extends App {
 
   val list1 = List(1, 2, 3)
 

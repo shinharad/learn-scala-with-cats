@@ -1,12 +1,13 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.functors_in_cats
 
 import cats.Functor
-import cats.syntax.functor._
-import cats.instances.option._
 import cats.instances.list._
+import cats.instances.option._
+import cats.syntax.functor._
+
 import scala.language.higherKinds
 
-object FunctorInCats2 extends App {
+object FunctorSyntaxDoMath extends App {
 
   def doMath[F[_]](start: F[Int])(implicit functor: Functor[F]): F[Int] =
     start.map(n => n + 1 * 2)

@@ -1,10 +1,10 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.functors_in_cats
 
 import cats.Functor
 
 import scala.concurrent.{ExecutionContext, Future}
 
-object FunctorCustomTypes extends App {
+object InstancesForCustomTypes extends App {
 
   implicit val optionFunctor: Functor[Option] =
     new Functor[Option] {

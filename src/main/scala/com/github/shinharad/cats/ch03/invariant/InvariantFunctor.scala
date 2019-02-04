@@ -1,9 +1,22 @@
-package com.github.shinharad.cats.ch03
+package com.github.shinharad.cats.ch03.invariant
+
+import com.github.shinharad.cats.ch03.Box
 
 trait Codec[A] { self =>
   def encode(value: A): String
   def decode(value: String): A
-  def imap[B](dec: A => B, enc: B => A): Codec[B] = ???
+
+  def imap[B](dec: A => B, enc: B => A): Codec[B] = {
+//    val self = this
+    new Codec[B] {
+      def encode(value: B): String =
+        self.encode(enc(value))
+
+      def decode(value: String): B =
+        dec(self.decode(value))
+    }
+  }
+
 }
 
 object InvariantFunctor extends App {
@@ -33,12 +46,16 @@ object InvariantFunctor extends App {
   def decode[A](value: String)(implicit c: Codec[A]): A =
     c.decode(value)
 
-  encode(123.4)
+  val r1 = encode(123.4)
+  println(r1)
 
-  decode[Double]("123.4")
+  val r2 = decode[Double]("123.4")
+  println(r2)
 
-  encode(Box(123.4))
+  val r3 = encode(Box(123.4))
+  println(r3)
 
-  decode[Box[Double]]("123.4")
+  val r4 = decode[Box[Double]]("123.4")
+  println(r4)
 
 }
