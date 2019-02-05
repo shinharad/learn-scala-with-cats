@@ -25,6 +25,6 @@ object RightToLeftElimination {
 
   type <=[B, A] = A => B
   val func2b: Double <= Double = func2
-  val func3c = func2b.contramap(func1)
+  val func3c                   = func2b.contramap(func1)
 
 }
