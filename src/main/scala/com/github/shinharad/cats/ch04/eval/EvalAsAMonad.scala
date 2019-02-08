@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch04.eval_monad
+package com.github.shinharad.cats.ch04.eval
 
 import cats.Eval
 

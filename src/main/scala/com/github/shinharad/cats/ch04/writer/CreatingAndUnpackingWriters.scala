@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch04.writer_monad
+package com.github.shinharad.cats.ch04.writer
 
 import cats.data.Writer
 import cats.instances.vector._ // for Monoid
