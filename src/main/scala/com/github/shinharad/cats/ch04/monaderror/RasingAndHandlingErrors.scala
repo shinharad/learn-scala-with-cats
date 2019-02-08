@@ -1,10 +1,10 @@
 package com.github.shinharad.cats.ch04.monaderror
 
 import cats.MonadError
-import cats.instances.either._ // for MonadError
-import cats.syntax.applicative._ // for pure
+import cats.instances.either._        // for MonadError
+import cats.syntax.applicative._      // for pure
 import cats.syntax.applicativeError._ // for raiseError
-import cats.syntax.monadError._ // for ensure
+import cats.syntax.monadError._       // for ensure
 
 object RasingAndHandlingErrors extends App {
 
@@ -29,7 +29,6 @@ object RasingAndHandlingErrors extends App {
 
   val r2 = monadError.ensure(success)("Number too low!")(_ > 1000)
   println(r2) // => Left(Number too low!)
-
 
   // MonadError syntax
   val success2 = 42.pure[ErrorOr]

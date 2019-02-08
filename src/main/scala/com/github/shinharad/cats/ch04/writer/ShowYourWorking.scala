@@ -12,10 +12,11 @@ import cats.syntax.writer._
 object ShowYourWorking extends App {
 
   def slowly[A](body: => A) =
-    try body finally Thread.sleep(100)
+    try body
+    finally Thread.sleep(100)
 
   def factorial(n: Int): Int = {
-    val ans = slowly(if(n == 0) 1 else n * factorial(n - 1))
+    val ans = slowly(if (n == 0) 1 else n * factorial(n - 1))
     println(s"fact $n $ans")
     ans
   }
@@ -25,10 +26,12 @@ object ShowYourWorking extends App {
 
   // If we start several factorials in parallel, the log messages can becom interleaved on standard out.
   // This makes it difficult to see which messages come from which computation.
-  val r2 = Await.result(Future.sequence(Vector(
-    Future(factorial(3)),
-    Future(factorial(3))
-  )), 5.seconds)
+  val r2 = Await.result(Future.sequence(
+                          Vector(
+                            Future(factorial(3)),
+                            Future(factorial(3))
+                          )),
+                        5.seconds)
 //  println(r2)
 
   type Logged[A] = Writer[Vector[String], A]
@@ -48,10 +51,12 @@ object ShowYourWorking extends App {
 //  println(res) // => 120
 
   val Vector((logA, ansA), (logB, ansB)) =
-    Await.result(Future.sequence(Vector(
-      Future(factorial2(3).run),
-      Future(factorial2(5).run)
-    )), 5.seconds)
+    Await.result(Future.sequence(
+                   Vector(
+                     Future(factorial2(3).run),
+                     Future(factorial2(5).run)
+                   )),
+                 5.seconds)
   println(logA) // => Vector(fact 0 1, fact 1 1, fact 2 2, fact 3 6)
   println(ansA) // => 6
   println(logB) // => Vector(fact 0 1, fact 1 1, fact 2 2, fact 3 6, fact 4 24, fact 5 120)

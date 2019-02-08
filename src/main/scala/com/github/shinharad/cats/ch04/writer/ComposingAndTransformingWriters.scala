@@ -18,10 +18,9 @@ object ComposingAndTransformingWriters extends App {
   val r1 = writer1.run
   println(r1) // => (Vector(a, b, c, x, y, z),42)
 
-
   // mapWritten
   val writer2 = writer1.mapWritten(_.map(_.toUpperCase))
-  val r2 = writer2.run
+  val r2      = writer2.run
   println(r2) // => (Vector(A, B, C, X, Y, Z),42)
 
   writer1.mapWritten { x => // Vector[String]
@@ -49,12 +48,12 @@ object ComposingAndTransformingWriters extends App {
 
   // reset
   val writer5 = writer1.reset
-  val r5 = writer5.run
+  val r5      = writer5.run
   println(r5) // => (Vector(),42)
 
   // swap
   val writer6 = writer1.swap
-  val r6 = writer6.run
+  val r6      = writer6.run
   println(r6) // => (42,Vector(a, b, c, x, y, z))
 
 }

@@ -20,7 +20,7 @@ object ComposingAndTransformingState extends App {
   } yield (a, b)
 
   val (state, result) = both.run(20).value
-  println(state) // => 42
+  println(state)  // => 42
   println(result) // => (Result of step1: 21,Result of step2: 42)
 
 }

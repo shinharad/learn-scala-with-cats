@@ -6,7 +6,9 @@ object EvalAsAMonad extends App {
 
   val greeting = Eval
     .always { println("Step 1"); "Hello" }
-    .map { str => println("Step 2"); s"$str world"}
+    .map { str =>
+      println("Step 2"); s"$str world"
+    }
 //  println(greeting)
   // cats.Eval$$anon$9@6a472554
 
@@ -14,7 +16,6 @@ object EvalAsAMonad extends App {
   // Step 1
   // Step 2
   // Hello world
-
 
   // Note that, while the semantics of the originating Eval instances are maintained,
   // mapping functions are always called lazily on demand (def semantics).
@@ -38,15 +39,18 @@ object EvalAsAMonad extends App {
   // Adding A and B
   // 42
 
-
   // Eval has a memoize method that allows us to memoize a chain of computations.
   // The result of the chain up to the call to memoize is cached,
   // whereas calculations after the call retain their original semantics.
   val saving = Eval
     .always { println("Step 1"); "The cat" }
-    .map { str => println("Step 2"); s"$str sat on" }
+    .map { str =>
+      println("Step 2"); s"$str sat on"
+    }
     .memoize
-    .map { str => println("Step 3"); s"$str the mat" }
+    .map { str =>
+      println("Step 3"); s"$str the mat"
+    }
   println(saving)
   // cats.Eval$$anon$9@61d47554
 
@@ -59,6 +63,5 @@ object EvalAsAMonad extends App {
   println(saving.value)
   // Step 3
   // The cat sat on the mat
-
 
 }

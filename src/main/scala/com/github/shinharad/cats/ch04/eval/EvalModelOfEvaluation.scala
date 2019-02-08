@@ -22,7 +22,6 @@ object EvalModelOfEvaluation extends App {
   val r3 = always.value
   println(r3) // => 3000.230588282586
 
-
   // Eval.now captures a value right now. Its semantics are similar to a val
   // eager and memoized
   val x = Eval.now {
@@ -38,7 +37,6 @@ object EvalModelOfEvaluation extends App {
 
   println(x.value)
   // 0.007074451170749008
-
 
   // Eval.always captures a lazy computation, similar to a def
   val y = Eval.always {
@@ -56,7 +54,6 @@ object EvalModelOfEvaluation extends App {
   // Computing Y
   // 0.6069255237758898
 
-
   // Eval.later captures a lazy, memoized computation, similar to a lazy val
   val z = Eval.later {
     println("Computing Z")
@@ -71,6 +68,5 @@ object EvalModelOfEvaluation extends App {
 
   println(z.value)
   // 0.8937286637675295
-
 
 }

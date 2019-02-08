@@ -10,7 +10,6 @@ object TrampoliningAndEvalDefer extends App {
 //  factorial(50000)
   // java.lang.StackOverflowError
 
-
 //  def factorial(n: BigInt): Eval[BigInt] =
 //    if (n == 1) {
 //      Eval.now(n)
@@ -19,7 +18,6 @@ object TrampoliningAndEvalDefer extends App {
 //    }
 //  factorial(50000).value
   // java.lang.StackOverflowError
-
 
   // It avoids consuming stack by creating a chain of function objects on the heap.
   // There are still limits on how deeply we can nest computations,

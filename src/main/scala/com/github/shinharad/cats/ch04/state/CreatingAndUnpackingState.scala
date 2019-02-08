@@ -10,7 +10,7 @@ object CreatingAndUnpackingState extends App {
   println(a)
 
   val (state, result) = a.run(10).value
-  println(state) // => 10
+  println(state)  // => 10
   println(result) // => The state is 10
 
   // runS
