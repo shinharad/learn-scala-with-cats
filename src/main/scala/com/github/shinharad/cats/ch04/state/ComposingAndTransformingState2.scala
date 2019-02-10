@@ -4,22 +4,27 @@ import cats.data.State
 
 object ComposingAndTransformingState2 extends App {
 
+  // get extracts the state as the result
   val getDemo = State.get[Int]
   val r1      = getDemo.run(10).value
   println(r1) // => (10,10)
 
+  // set updates the state and returns unit as the result
   val setDemo = State.set[Int](30)
   val r2      = setDemo.run(10).value
   println(r2) // => (30,())
 
+  // pure ignores the state and returns a supplied result
   val pureDemo = State.pure[Int, String]("Result")
   val r3       = pureDemo.run(10).value
   println(r3) // => (10,Result)
 
+  // inspect extracts the state via a transformation function
   val inspectDemo = State.inspect[Int, String](_ + "!")
   val r4          = inspectDemo.run(10).value
   println(r4) // => (10,10!)
 
+  // modify updates the state using an update function
   val modifyDemo = State.modify[Int](_ + 1)
   val r5         = modifyDemo.run(10).value
   println(r5) // => (11,())

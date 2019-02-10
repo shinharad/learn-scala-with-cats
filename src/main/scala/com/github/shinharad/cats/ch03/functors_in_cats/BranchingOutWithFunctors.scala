@@ -1,7 +1,5 @@
 package com.github.shinharad.cats.ch03.functors_in_cats
 
-import com.github.shinharad.cats.ch03.functors_in_cats.Tree.{Branch, Leaf}
-
 sealed trait Tree[+A]
 
 object Tree {
@@ -22,6 +20,7 @@ object BranchingOutWithFunctors extends App {
 
   import cats.Functor
   import cats.syntax.functor._
+  import Tree._
 
   implicit val treeFunctor: Functor[Tree] =
     new Functor[Tree] {
