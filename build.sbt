@@ -6,7 +6,7 @@ lazy val root = (project in file("."))
     scalaVersion := Dependencies.scalaV,
     libraryDependencies ++= Dependencies.coreDependencies,
     scalacOptions ++= Seq(
-        "-Xfatal-warnings",
+//        "-Xfatal-warnings",
         "-Ypartial-unification",
         "-unchecked",
         "-deprecation",
