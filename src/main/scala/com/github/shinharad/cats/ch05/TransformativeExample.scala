@@ -1,7 +1,7 @@
 package com.github.shinharad.cats.ch05
 
 //import cats.Monad
-import cats.instances.list._ // for Monad
+import cats.instances.list._     // for Monad
 import cats.syntax.applicative._ // for pure
 import cats.data.OptionT
 

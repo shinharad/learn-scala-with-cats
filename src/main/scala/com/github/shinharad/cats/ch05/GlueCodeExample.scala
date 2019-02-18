@@ -11,7 +11,7 @@ object GlueCodeExample extends App {
   def parseNumber(str: String): Logged[Option[Int]] =
     util.Try(str.toInt).toOption match {
       case Some(num) => Writer(List(s"Read $str"), Some(num))
-      case None => Writer(List(s"Failed on $str"), None)
+      case None      => Writer(List(s"Failed on $str"), None)
     }
 
   // Consumers use monad transformers locally to simplify composition:

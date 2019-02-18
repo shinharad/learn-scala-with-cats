@@ -4,7 +4,7 @@ object Dependencies {
 
   val scalaV = "2.12.8"
 
-  val catsV = "1.5.0"
+  val catsV = "1.6.0"
 
   val scalatestV  = "3.0.5"
 
