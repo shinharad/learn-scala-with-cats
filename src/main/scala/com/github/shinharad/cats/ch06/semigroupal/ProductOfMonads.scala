@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch06
+package com.github.shinharad.cats.ch06.semigroupal
 
 import cats.Monad
 import cats.syntax.flatMap._

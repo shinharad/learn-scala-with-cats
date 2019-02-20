@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch06
+package com.github.shinharad.cats.ch06.semigroupal
 
 import cats.Semigroupal
 import cats.instances.option._
@@ -13,5 +13,8 @@ object JoiningTwoContexts extends App {
 
   val r3 = Semigroupal[Option].product(Some(123), None)
   println(r3) // => None
+
+  val r4 = Semigroupal.tuple2(Option(123), Option("abc"))
+  println(r4)
 
 }

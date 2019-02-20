@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch06
+package com.github.shinharad.cats.ch06.validated
 
 import cats.Semigroupal
 import cats.data.Validated

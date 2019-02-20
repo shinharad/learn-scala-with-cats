@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch06
+package com.github.shinharad.cats.ch06.semigroupal
 
 import cats.Semigroupal
 import cats.instances.option._

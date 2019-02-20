@@ -1,4 +1,4 @@
-package com.github.shinharad.cats.ch06
+package com.github.shinharad.cats.ch06.semigroupal
 
 import cats.instances.option._
 import cats.syntax.apply._
@@ -17,12 +17,14 @@ object ApplySyntax extends App {
     Option("Garfield"),
     Option(1978),
     Option("Orange & Black")
-  ).mapN(Cat)
+  ).mapN(Cat.apply)
   println(r3) // => Some(Cat(Garfield,1978,Orange & Black))
 
   val add: (Int, Int) => Int = (a, b) => a + b
 
 //  (Option(1), Option(2), Option(3)).mapN(add)
-  (Option(1), Option(2)).mapN(add)
+  val r4 = (Option(1), Option(2)).mapN(add)
+  println(r4)
+  // => Some(3)
 
 }

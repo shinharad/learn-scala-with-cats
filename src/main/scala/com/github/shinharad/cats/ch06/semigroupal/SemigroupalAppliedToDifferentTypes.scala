@@ -1,14 +1,15 @@
-package com.github.shinharad.cats.ch05
+package com.github.shinharad.cats.ch06.semigroupal
 
 import cats.Semigroupal
 import cats.instances.future._
 import cats.instances.list._
+import cats.instances.either._
+import cats.syntax.apply._
+
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
 import scala.concurrent.duration._
-import scala.concurrent.ExecutionContext.Implicits.global
-import cats.syntax.apply._
-import cats.instances.either._
-import scala.language.postfixOps
+import scala.language.{higherKinds, postfixOps}
 
 object SemigroupalAppliedToDifferentTypes extends App {
 
@@ -22,7 +23,7 @@ object SemigroupalAppliedToDifferentTypes extends App {
   case class Cat(
     name: String,
     yearOfBirth: Int,
-    favoriteFoods: List[String]
+    favoriteFood: List[String]
   )
 
   val futureCat = (
@@ -45,6 +46,7 @@ object SemigroupalAppliedToDifferentTypes extends App {
     Left(Vector("Error 1")),
     Left(Vector("Error 2"))
   )
-  println(r) // => Left(Vector(Error 1))
+  println(r)
+  // => Left(Vector(Error 1))
 
 }
