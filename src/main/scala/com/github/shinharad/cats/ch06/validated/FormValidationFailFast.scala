@@ -1,6 +1,5 @@
 package com.github.shinharad.cats.ch06.validated
 
-import cats.data.Validated
 import cats.syntax.either._
 
 object FormValidationFailFast extends App {
@@ -10,9 +9,6 @@ object FormValidationFailFast extends App {
   // Form Validation Part 1
   type FormData    = Map[String, String]
   type FailFast[A] = Either[List[String], A]
-
-  // TODO
-  type FailSlow[A] = Validated[List[String], A]
 
   def getValue(name: String)(data: FormData): FailFast[String] =
     data
