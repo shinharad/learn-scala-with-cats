@@ -39,7 +39,8 @@ object FormValidationFailFast extends App {
 
   // Form Validation Part 3
   def nonBlank(name: String)(data: String): FailFast[String] = {
-    data.asRight[List[String]]
+    data
+      .asRight[List[String]]
       .ensure(List(s"$name cannot be blank"))(_.nonEmpty)
 
     // IntelliJ IDEAのScala Pluginで型推論に失敗する
@@ -48,7 +49,8 @@ object FormValidationFailFast extends App {
   }
 
   def nonNegative(name: String)(data: Int): FailFast[Int] =
-    data.asRight[List[String]]
+    data
+      .asRight[List[String]]
       .ensure(List(s"$name must be non-negative"))(_ >= 0)
 
   println(nonBlank("name")("Dade Murphy"))
