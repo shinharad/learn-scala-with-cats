@@ -31,11 +31,11 @@ object ComposingAndTransformingState2 extends App {
 
   import State._
   val program: State[Int, (Int, Int, Int)] = for {
-    a <- get[Int]
-    _ <- set[Int](a + 1)
-    b <- get[Int]
-    _ <- modify[Int](_ + 1)
-    c <- inspect[Int, Int](_ * 1000)
+    a <- get[Int]                    // 1, a: 1
+    _ <- set[Int](a + 1)             // 2, a: 1
+    b <- get[Int]                    // 2, a: 1, b: 2
+    _ <- modify[Int](_ + 1)          // 3, a: 1, b: 2
+    c <- inspect[Int, Int](_ * 1000) // 3, a: 1, b: 2, c: 3000
   } yield (a, b, c)
 
   val (state, result) = program.run(1).value

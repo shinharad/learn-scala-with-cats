@@ -2,8 +2,6 @@ package com.github.shinharad.cats.ch07.traverse
 
 import cats.instances.option._
 
-import scala.language.higherKinds
-
 object TraversingWithOptions extends App {
   import TraversingWithApplicatives._
 

@@ -12,6 +12,9 @@ object FunctorSyntaxDoMath extends App {
   def doMath[F[_]](start: F[Int])(implicit functor: Functor[F]): F[Int] =
     start.map(n => n + 1 * 2)
 
+//  def doMath[F[_]: Functor](start: F[Int]): F[Int] =
+//    start.map(n => n + 1 * 2)
+
   val r1 = doMath(Option(20))
   println(r1)
 

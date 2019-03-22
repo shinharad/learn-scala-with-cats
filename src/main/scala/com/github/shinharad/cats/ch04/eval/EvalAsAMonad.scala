@@ -2,42 +2,61 @@ package com.github.shinharad.cats.ch04.eval
 
 import cats.Eval
 
-object EvalAsAMonad extends App {
+object EvalAsAMonad1 extends App {
 
   val greeting = Eval
-    .always { println("Step 1"); "Hello" }
+    .always {
+      println("Step 1"); "Hello"
+    }
     .map { str =>
       println("Step 2"); s"$str world"
     }
-//  println(greeting)
+  println(greeting)
   // cats.Eval$$anon$9@6a472554
 
-//  println(greeting.value)
+  println(greeting.value)
   // Step 1
   // Step 2
   // Hello world
 
+  println(greeting.value)
+  // Step 1
+  // Step 2
+  // Hello world
+}
+
+object EvalAsAMonad2 extends App {
+
   // Note that, while the semantics of the originating Eval instances are maintained,
   // mapping functions are always called lazily on demand (def semantics).
   val ans = for {
-    a <- Eval.now { println("Calculating A"); 40 }
-    b <- Eval.always { println("Calculating B"); 2 }
+    a <- Eval.now {
+      println("Calculating A"); 40
+    }
+    b <- Eval.always {
+      println("Calculating B"); 2
+    }
   } yield {
     println("Adding A and B")
     a + b
   }
-//  println(ans)
+  println(ans)
+  // Calculating A
   // cats.Eval$$anon$9@525b461a
 
-//  println(ans.value)
+  println(ans.value)
   // Calculating B
   // Adding A and B
   // 42
 
-//  println(ans.value)
+  println(ans.value)
   // Calculating B
   // Adding A and B
   // 42
+
+}
+
+object EvalAsAMonad3 extends App {
 
   // Eval has a memoize method that allows us to memoize a chain of computations.
   // The result of the chain up to the call to memoize is cached,

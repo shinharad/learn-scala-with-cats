@@ -4,11 +4,12 @@ import scala.util.Try
 import cats.instances.try_._
 import cats.syntax.applicativeError._
 
-object InstancesOfMonadError {
+object InstancesOfMonadError extends App {
 
   val exn: Throwable =
     new RuntimeException("It's all gone wrong")
 
-  exn.raiseError[Try, Int]
+  println(exn.raiseError[Try, Int])
+  // => Failure(java.lang.RuntimeException: It's all gone wrong)
 
 }

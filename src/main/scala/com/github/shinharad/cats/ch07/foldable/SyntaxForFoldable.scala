@@ -5,8 +5,6 @@ import cats.instances.list._
 import cats.instances.string._
 import cats.syntax.foldable._ // for combineAll and foldMap
 
-import cats.implicits._
-
 object SyntaxForFoldable extends App {
 
   val r1 = List(1, 2, 3).combineAll

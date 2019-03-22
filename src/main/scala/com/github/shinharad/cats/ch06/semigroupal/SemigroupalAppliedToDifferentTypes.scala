@@ -9,7 +9,7 @@ import cats.syntax.apply._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
 import scala.concurrent.duration._
-import scala.language.{higherKinds, postfixOps}
+import scala.language.postfixOps
 
 object SemigroupalAppliedToDifferentTypes extends App {
 

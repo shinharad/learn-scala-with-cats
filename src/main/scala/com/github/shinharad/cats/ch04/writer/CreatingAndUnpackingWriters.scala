@@ -7,12 +7,15 @@ import cats.syntax.writer._      // for tell
 
 object CreatingAndUnpackingWriters extends App {
 
-  val writer = Writer(Vector(
-                        "It was the best of times",
-                        "it was the worst of times"
-                      ),
-                      1859)
-  println(writer) // => WriterT((Vector(It was the best of times, it was the worst of times),1859))
+  val writer = Writer(
+    Vector(
+      "It was the best of times",
+      "it was the worst of times"
+    ),
+    1859
+  )
+  println(writer)
+  // => WriterT((Vector(It was the best of times, it was the worst of times),1859))
 
   // Notice that the type reported on the console is actually WriterT[Id, Vector[String], Int] instead of Writer[Vector[String], Int] as we might expect.
 

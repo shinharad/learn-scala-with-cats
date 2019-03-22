@@ -27,7 +27,7 @@ object TraversingWithApplicatives extends App {
   ): Future[List[Int]] = {
     val uptime = getUptime(host)
     for {
-      accum <- accum
+      accum  <- accum
       uptime <- uptime
     } yield accum :+ uptime
   }

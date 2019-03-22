@@ -7,11 +7,13 @@ case class Cat(name: String, favoriteFood: String)
 object CreatingAndUnpackingReaders extends App {
 
   val catName: Reader[Cat, String] = Reader(cat => cat.name)
-  val r1                           = catName.run(Cat("Garfield", "lasagne"))
+
+  val r1 = catName.run(Cat("Garfield", "lasagne"))
   println(r1) // => Garfield
 
   val greetKitty: Reader[Cat, String] = catName.map(name => s"Hello $name")
-  val r2                              = greetKitty.run(Cat("Heathcliff", "junk food"))
+
+  val r2 = greetKitty.run(Cat("Heathcliff", "junk food"))
   println(r2) // => Hello Heathcliff
 
   val feedKitty: Reader[Cat, String] =

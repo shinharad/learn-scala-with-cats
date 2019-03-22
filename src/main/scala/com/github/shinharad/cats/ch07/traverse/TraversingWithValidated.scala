@@ -3,8 +3,6 @@ package com.github.shinharad.cats.ch07.traverse
 import cats.data.Validated
 import cats.instances.list._
 
-import scala.language.higherKinds
-
 object TraversingWithValidated extends App {
   import TraversingWithApplicatives._
 

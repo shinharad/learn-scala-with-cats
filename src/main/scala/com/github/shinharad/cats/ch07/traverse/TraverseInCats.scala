@@ -8,7 +8,7 @@ import cats.syntax.traverse._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
-import scala.language.{higherKinds, postfixOps}
+import scala.language.postfixOps
 
 object TraverseInCats extends App {
 

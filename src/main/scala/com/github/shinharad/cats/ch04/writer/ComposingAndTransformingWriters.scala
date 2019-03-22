@@ -1,9 +1,9 @@
 package com.github.shinharad.cats.ch04.writer
 
 import cats.data.Writer
-import cats.instances.vector._
-import cats.syntax.applicative._
-import cats.syntax.writer._
+import cats.instances.vector._   // for Monoid
+import cats.syntax.applicative._ // for pure
+import cats.syntax.writer._      // for tell
 
 object ComposingAndTransformingWriters extends App {
 
@@ -22,12 +22,6 @@ object ComposingAndTransformingWriters extends App {
   val writer2 = writer1.mapWritten(_.map(_.toUpperCase))
   val r2      = writer2.run
   println(r2) // => (Vector(A, B, C, X, Y, Z),42)
-
-  writer1.mapWritten { x => // Vector[String]
-    x.map { y =>
-      y.toUpperCase
-    }
-  }
 
   // bimap
   val writer3 = writer1.bimap(

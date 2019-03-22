@@ -17,13 +17,12 @@ object TraversingWithFutures extends App {
     Future(hostname.length * 60)
 
   val allUptimes: Future[List[Int]] =
-    hostnames.foldLeft(Future(List.empty[Int])) {
-      (accum, host) =>
-        val uptime = getUptime(host)
-        for {
-          accum <- accum
-          uptime <- uptime
-        } yield accum :+ uptime
+    hostnames.foldLeft(Future(List.empty[Int])) { (accum, host) =>
+      val uptime = getUptime(host)
+      for {
+        accum  <- accum
+        uptime <- uptime
+      } yield accum :+ uptime
     }
 
   val r1 = Await.result(allUptimes, 1 second)

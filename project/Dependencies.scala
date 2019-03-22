@@ -19,10 +19,4 @@ object Dependencies {
     "org.typelevel" %% "cats-core"
   ).map(_ % catsV)
 
-  // Project Dependencies
-
-  lazy val coreDependencies =
-    testingDependencies ++
-    catsDependencies
-
 }

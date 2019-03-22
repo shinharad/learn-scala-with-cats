@@ -4,7 +4,7 @@ lazy val root = (project in file("."))
     name := "learn-scala-with-cats",
     organization := "com.github.shinharad",
     scalaVersion := Dependencies.scalaV,
-    libraryDependencies ++= Dependencies.coreDependencies,
+    libraryDependencies ++= Dependencies.catsDependencies,
     scalacOptions ++= Seq(
 //        "-Xfatal-warnings",
         "-Ypartial-unification",

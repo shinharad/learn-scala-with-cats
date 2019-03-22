@@ -15,6 +15,7 @@ object MonoidInstancesExample01 extends App {
 
   println(Monoid.apply[String].empty)
 
+  // Monoid extends Semigroup. If we don't need empty we can equivalently write:
   Semigroup[String].combine("Hi ", "there")
 
   Monoid[Int].combine(32, 10)

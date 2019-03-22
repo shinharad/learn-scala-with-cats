@@ -18,6 +18,7 @@ object RasingAndHandlingErrors extends App {
   val failure = monadError.raiseError("Badness")
   println(failure) // => Left(Badness)
 
+  // handleError
   val r1 = monadError.handleError(failure) {
     case "Badness" =>
       monadError.pure("It's ok")
@@ -27,6 +28,7 @@ object RasingAndHandlingErrors extends App {
   }
   println(r1) // => Right(Right(It's ok))
 
+  // ensure
   val r2 = monadError.ensure(success)("Number too low!")(_ > 1000)
   println(r2) // => Left(Number too low!)
 

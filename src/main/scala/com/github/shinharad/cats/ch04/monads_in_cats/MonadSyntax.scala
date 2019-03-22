@@ -1,19 +1,20 @@
 package com.github.shinharad.cats.ch04.monads_in_cats
 
-import cats.Monad
-import cats.instances.option._
-import cats.instances.list._
-import cats.syntax.applicative._
-import cats.syntax.flatMap._
-import cats.syntax.functor._
-
 import scala.language.higherKinds
 
 object MonadSyntax extends App {
 
+  import cats.syntax.applicative._
+  import cats.instances.option._
+  import cats.instances.list._
+
   1.pure[Option]
 
   1.pure[List]
+
+  import cats.Monad
+  import cats.syntax.functor._
+  import cats.syntax.flatMap._
 
   def sumSquare[F[_]: Monad](a: F[Int], b: F[Int]): F[Int] =
     a.flatMap(x => b.map(y => x * x + y * y))

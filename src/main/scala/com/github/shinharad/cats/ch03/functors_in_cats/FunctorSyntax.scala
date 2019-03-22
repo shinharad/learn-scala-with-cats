@@ -1,7 +1,7 @@
 package com.github.shinharad.cats.ch03.functors_in_cats
 
-import cats.instances.function._
-import cats.syntax.functor._
+import cats.instances.function._ // for Functor
+import cats.syntax.functor._     // for map
 
 object FunctorSyntax extends App {
 

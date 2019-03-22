@@ -2,8 +2,6 @@ package com.github.shinharad.cats.ch07.traverse
 
 import cats.instances.vector._
 
-import scala.language.{higherKinds, postfixOps}
-
 object TraversingWithVectors extends App {
   import TraversingWithApplicatives._
 

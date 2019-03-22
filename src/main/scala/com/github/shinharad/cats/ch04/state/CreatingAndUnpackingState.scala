@@ -7,7 +7,6 @@ object CreatingAndUnpackingState extends App {
   val a = State[Int, String] { state =>
     (state, s"The state is $state")
   }
-  println(a)
 
   val (state, result) = a.run(10).value
   println(state)  // => 10

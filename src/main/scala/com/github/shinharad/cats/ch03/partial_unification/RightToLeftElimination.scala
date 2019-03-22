@@ -6,13 +6,15 @@ import cats.syntax.functor._
 
 // Most multiparameter type constructors are designed to be right-biased,
 // requiring the left ot right elimination that is supported by the compiler out of the box.
-object RightToLeftElimination {
+object RightToLeftElimination extends App {
 
   val func1 = (x: Int) => x.toDouble
   val func2 = (y: Double) => y * 2
 
   val func3 = func1.map(func2)
+  println(func3(123))
 
+  // composition
   val func3a: Int => Double =
     a => func2(func1(a))
 
@@ -24,7 +26,13 @@ object RightToLeftElimination {
 //    func2.contramap(func1)
 
   type <=[B, A] = A => B
-  val func2b: Double <= Double = func2
-  val func3c                   = func2b.contramap(func1)
+
+  type F[A] = Double <= A
+
+  val func2b: F[Double] = func2
+//  val func2b: Double <= Double = func2
+
+  val func3c = func2b.contramap(func1)
+  println(func3c(123))
 
 }
