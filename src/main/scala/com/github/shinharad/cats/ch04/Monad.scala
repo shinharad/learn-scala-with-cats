@@ -1,7 +1,5 @@
 package com.github.shinharad.cats.ch04
 
-import scala.language.higherKinds
-
 trait Monad[F[_]] {
 
   def pure[A](a: A): F[A]

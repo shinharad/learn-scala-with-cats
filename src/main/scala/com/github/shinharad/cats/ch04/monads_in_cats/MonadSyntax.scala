@@ -1,7 +1,5 @@
 package com.github.shinharad.cats.ch04.monads_in_cats
 
-import scala.language.higherKinds
-
 object MonadSyntax extends App {
 
   import cats.syntax.applicative._

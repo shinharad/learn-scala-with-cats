@@ -5,8 +5,6 @@ import cats.instances.list._
 import cats.instances.option._
 import cats.syntax.functor._
 
-import scala.language.higherKinds
-
 object FunctorSyntaxDoMath extends App {
 
   def doMath[F[_]](start: F[Int])(implicit functor: Functor[F]): F[Int] =

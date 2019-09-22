@@ -4,8 +4,6 @@ import cats.{Id, Monad}
 import cats.syntax.flatMap._
 import cats.syntax.functor._
 
-import scala.language.higherKinds
-
 object IdentityMonad extends App {
 
   def sumSquare[F[_]: Monad](a: F[Int], b: F[Int]): F[Int] =

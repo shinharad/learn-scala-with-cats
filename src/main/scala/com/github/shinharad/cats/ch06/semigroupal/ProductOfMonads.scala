@@ -6,8 +6,6 @@ import cats.syntax.functor._
 import cats.instances.either._
 import cats.instances.list._
 
-import scala.language.higherKinds
-
 // fail-fast error handling
 object ProductOfMonads extends App {
 
