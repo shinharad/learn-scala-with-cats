@@ -5,9 +5,8 @@ import cats.syntax.eq._
 import cats.instances.int._
 import cats.instances.string._
 
-final case class Cat(name: String, age: Int, color: String)
-
-object ExersiceEq extends App {
+object ExerciseEq extends App {
+  final case class Cat(name: String, age: Int, color: String)
 
   val cat1 = Cat("Garfield", 38, "orange and black")
   val cat2 = Cat("Heathcliff", 33, "orange and black")
@@ -19,7 +18,7 @@ object ExersiceEq extends App {
     Eq.instance[Cat] { (cat1, cat2) =>
       (cat1.name === cat2.name) &&
       (cat1.age === cat2.age) &&
-      (cat1.color == cat2.color)
+      (cat1.color === cat2.color)
     }
 
   println(cat1 === cat2)

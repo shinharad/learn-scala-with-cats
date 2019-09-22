@@ -16,7 +16,11 @@ object EqExample01 extends App {
 
   123 =!= 234
 
+  // compile error
 //  123 === "123"
+
+  // compile error
+//  List(1, 2, 3).map(Option(_)).filter(x => x === 1)
 
 }
 
@@ -43,6 +47,7 @@ object EqExample03 extends App {
   import cats.instances.long._
   import cats.syntax.eq._
 
+  // instance
   implicit val dateEq: Eq[Date] =
     Eq.instance[Date] { (date1, date2) =>
       date1.getTime === date2.getTime

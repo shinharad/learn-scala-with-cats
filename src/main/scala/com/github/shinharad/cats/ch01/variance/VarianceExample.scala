@@ -22,8 +22,8 @@ object Contravariance extends App {
   val shape: Shape   = ???
   val circle: Circle = ???
 
-  // JsonWriter[Shape] is a subtype of JsonWriter[Circle]
-  // We can use shapeWriter anywhere we expect to see a JsonWriter[Circle].
+  // JsonWriter[Shape] is a subtype of JsonWriter[Circle] because Circle is a subtype of Shape.
+  // This means we can use shapeWriter anywhere we expect to see a JsonWriter[Circle].
   val shapeWriter: JsonWriter[Shape]   = ???
   val circleWriter: JsonWriter[Circle] = ???
 

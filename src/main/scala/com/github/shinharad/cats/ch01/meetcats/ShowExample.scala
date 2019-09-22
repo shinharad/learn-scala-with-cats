@@ -16,9 +16,17 @@ object ShowExample01 extends App {
   val stringAsString: String = showString.show("abc")
   println(stringAsString)
 
+  import cats.syntax.show._
+
+  val shownInt = 123.show
+  println(shownInt)
+
+  val shownString = "abc".show
+  println(shownString)
+
 }
 
-// Defining Custome Instances
+// Defining Custom Instances
 object ShowExample02 extends App {
   import cats._
   import cats.syntax.show._
@@ -30,7 +38,7 @@ object ShowExample02 extends App {
 //        s"${date.getTime}ms since the epoch."
 //    }
 
-  implicit val dateShow2: Show[Date] =
+  implicit val dateShow: Show[Date] =
     date => s"${date.getTime}ms since the epoch."
 
 //  implicit val dateShow: Show[Date] =
