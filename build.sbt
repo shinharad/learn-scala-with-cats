@@ -1,17 +1,19 @@
 
 lazy val root = (project in file("."))
   .settings(
-    name := "learn-scala-with-cats",
+    name := "scala-with-cats",
     organization := "com.github.shinharad",
-    scalaVersion := Dependencies.scalaV,
+    scalaVersion := "2.13.1",
+    // scalaVersion := "2.12.9",
     libraryDependencies ++= Dependencies.catsDependencies,
     scalacOptions ++= Seq(
 //        "-Xfatal-warnings",
-        "-Ypartial-unification",
+        // "-Ypartial-unification",
         "-unchecked",
         "-deprecation",
         "-feature",
         "-Xlint"
     ),
-    scalafmtOnCompile in ThisBuild := true
+    ThisBuild / scalafmtOnCompile := true,
+    ThisBuild / turbo := true
   )

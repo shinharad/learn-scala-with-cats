@@ -64,11 +64,11 @@ object BuildingMonadStacks3 extends App {
 
   // Constructing and Unpacking Instances
   val errorStack1 = OptionT[ErrorOr, Int](Right(Some(10)))
-  var r1 = errorStack1.value
+  var r1          = errorStack1.value
   println(r1) // => Right(Some(10))
 
   val errorStack2 = 32.pure[ErrorOrOption]
-  val r2 = errorStack2.value.map(_.getOrElse(-1))
+  val r2          = errorStack2.value.map(_.getOrElse(-1))
   println(r2) // => Right(32)
 
 }

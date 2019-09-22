@@ -3,10 +3,10 @@ package com.github.shinharad.cats.ch01.anatomy
 object Example1 extends App {
   import JsonWriterInstances._
 
-  Json.toJson("Dave")
+  println(Json.toJson("Dave"))
 
-  Json.toJson(Person("Dave", "dave@example.com"))
-  Json.toJson(Person("Dave", "dave@example.com"))(personWriter)
+  println(Json.toJson(Person("Dave", "dave@example.com")))
+  println(Json.toJson(Person("Dave", "dave@example.com"))(personWriter))
 
 }
 
@@ -15,8 +15,8 @@ object Example2 extends App {
   import JsonWriterInstances._
   import JsonSyntax._
 
-  Person("Dave", "dave@example.com").toJson
-  Person("Dave", "dave@example.com").toJson(personWriter)
+  println(Person("Dave", "dave@example.com").toJson)
+  println(Person("Dave", "dave@example.com").toJson(personWriter))
 
 }
 
