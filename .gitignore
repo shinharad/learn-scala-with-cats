@@ -6,7 +6,7 @@ target
 /.classpath
 /.project
 /.settings
-/.metals
+.metals
 .bloop
 /RUNNING_PID
 !.gitkeep
